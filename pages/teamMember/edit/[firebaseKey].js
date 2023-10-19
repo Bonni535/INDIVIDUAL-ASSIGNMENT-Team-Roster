@@ -12,5 +12,5 @@ export default function EditTeamMember() {
     getSingleTeamMember(firebaseKey).then(setEditItem);
   }, [firebaseKey]);
 
-  return (<TeamMemberForm obj={editItem} />);
+  return <TeamMemberForm obj={editItem} />;
 }

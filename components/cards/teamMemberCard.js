@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap/Button';
-import { Card } from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { deleteTeamMember } from '../../utils/data/api/teamMemberData';
 
@@ -14,9 +14,9 @@ function TeamMemberCard({ teamMemberObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={teamMemberObj.image} alt={teamMemberObj.image} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={teamMemberObj.image} alt={teamMemberObj.name} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Name>{teamMemberObj.name}</Card.Name>
+        <Card.Title>{teamMemberObj.name}</Card.Title>
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
         <Link href={`/teamMember/${teamMemberObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>

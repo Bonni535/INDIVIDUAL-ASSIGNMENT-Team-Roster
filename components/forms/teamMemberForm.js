@@ -19,7 +19,7 @@ function TeamMemberForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
+    if (obj?.firebaseKey) setFormInput(obj);
   }, [obj, user]);
 
   const handleChange = (e) => {
@@ -47,7 +47,7 @@ function TeamMemberForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Team Member</h2>
+      <h2 className="text-white mt-5">{obj?.firebaseKey ? 'Update' : 'Create'} Team Member</h2>
 
       {/* Name INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Team Member Name" className="mb-3">
@@ -86,7 +86,7 @@ function TeamMemberForm({ obj }) {
       </FloatingLabel>
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Team Member</Button>
+      <Button type="submit">{obj?.firebaseKey ? 'Update' : 'Create'} Team Member</Button>
     </Form>
   );
 }

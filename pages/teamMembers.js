@@ -11,9 +11,9 @@ function ShowTeamMembers() {
   // Get the user UID using useAuth Hook
   const { user } = useAuth();
   // create a function that makes the API call to get all the books
-  const getAllTheTeamMembers = () => {
+  const getAllTheTeamMembers = (() => {
     getTeamMembers(user.uid).then(setTeamMembers);
-  };
+  });
   // make the call to the API to get all the teamMembers on component render
   useEffect(() => {
     getAllTheTeamMembers();

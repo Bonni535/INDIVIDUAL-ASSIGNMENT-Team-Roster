@@ -5,6 +5,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { createTeamMember, updateTeamMember } from '../../utils/data/api/teamMemberData';
+import { useAuth } from '../../utils/context/authContext';
 
 const initialState = {
   name: '',
@@ -15,10 +16,11 @@ const initialState = {
 function TeamMemberForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const router = useRouter();
+  const { user } = useAuth();
 
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
-  }, [obj]);
+  }, [obj, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,13 +33,13 @@ function TeamMemberForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateTeamMember(formInput).then(() => router.push(`/teamMember/${obj.firebaseKey}`));
+      updateTeamMember(formInput).then(() => router.push('/teamMembers'));
     } else {
-      const payload = { ...formInput };
+      const payload = { ...formInput, uid: user.uid };
       createTeamMember(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateTeamMember(patchPayload).then(() => {
-          router.push('/');
+          router.push('/teamMembers');
         });
       });
     }

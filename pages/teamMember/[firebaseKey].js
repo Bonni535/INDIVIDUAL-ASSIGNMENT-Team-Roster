@@ -9,12 +9,12 @@ export default function ViewTeamMember() {
 
   useEffect(() => {
     getSingleTeamMember(firebaseKey).then(setTeamMemberDetails);
-  });
+  }, [firebaseKey]);
 
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
-        <img src={teamMemberDetails.image} alt={teamMemberDetails.title} style={{ width: '300px' }} />
+        <img src={teamMemberDetails.image} alt={teamMemberDetails.name} style={{ width: '300px' }} />
       </div>
       role:
       <p>{teamMemberDetails.role || ''}</p>

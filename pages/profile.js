@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { useAuth } from '../utils/context/authContext';
 
 export default function Profile() {
@@ -6,7 +7,7 @@ export default function Profile() {
 
   return (
     <>
-      <img alt="User Profile" src={user.photoURL} />
+      <Image alt="User Profile" src={user.photoURL} />
       <h1>{user.displayName}</h1>
       <h2>{user.email}</h2>
     </>

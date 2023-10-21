@@ -19,9 +19,9 @@ function TeamMemberCard({ teamMemberObj, onUpdate }) {
         <Card.Title>{teamMemberObj.name}</Card.Title>
         <Card.Text>{teamMemberObj.role}</Card.Text>
         {/* DYNAMIC LINK TO VIEW THE TEAM MEMBER DETAILS  */}
-        <Link href={`/teamMember/${teamMemberObj.firebaseKey}`} passHref>
+        {/* <Link href={`/teamMember/${teamMemberObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
-        </Link>
+        </Link> */}
         {/* DYNAMIC LINK TO EDIT THE TEAM MEMBER DETAILS  */}
         <Link href={`/teamMember/edit/${teamMemberObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>

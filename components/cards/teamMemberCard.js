@@ -14,9 +14,10 @@ function TeamMemberCard({ teamMemberObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={teamMemberObj.image} alt={teamMemberObj.name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={teamMemberObj.image} alt={teamMemberObj.name} style={{ height: '200px' }} />
       <Card.Body>
         <Card.Title>{teamMemberObj.name}</Card.Title>
+        <Card.Text>{teamMemberObj.role}</Card.Text>
         {/* DYNAMIC LINK TO VIEW THE TEAM MEMBER DETAILS  */}
         <Link href={`/teamMember/${teamMemberObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
